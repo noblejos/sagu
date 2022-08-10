@@ -2,10 +2,16 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: black;
+    background-color: black;
+    background-image: url('/image/hero.png');
+    background-size: 160%;
+    background-position-x: 85%;
+    background-position-y: 30%;
+    background-repeat: no-repeat;
     color: white;
     padding: 10px 60px;
     position: sticky;
+    background-image: url('/image/hero.png');
 }
 
 .container h1{
@@ -15,6 +21,7 @@
     font-size: 18px;
     line-height: 23px;
     color: #FFFFFF;
+    cursor: pointer;
 }
 .links{
     display: flex;

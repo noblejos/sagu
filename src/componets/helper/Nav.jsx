@@ -1,10 +1,11 @@
 import styles from "../../styles/componets/helper/Nav.module.css"
+import Link from "next/link"
 
 export default function Nav() {
   return (
     <div className={styles.container}>
         <div>
-            <h1>Sagu</h1>
+            <Link href='/'><h1>Sagu</h1></Link>
         </div>
         <div>
             <ul className={styles.links}>
@@ -13,7 +14,7 @@ export default function Nav() {
             </ul>
         </div>
         <div>
-            <button>Connect Wallet</button>
+            <Link href="/auth/connect"><button>Connect Wallet</button></Link>
         </div>
     </div>
   )

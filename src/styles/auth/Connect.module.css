@@ -1,0 +1,75 @@
+.container {
+    padding: 0 2rem;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 86vh;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .main{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+  }
+  .content{
+    text-align: center;
+    width: 70%;
+    margin: 0 auto;
+    /* padding: 50px; */
+  }
+  .content>h1{
+    font-family: 'Sora', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 30px;
+    color: #091B1C;
+  }
+  .content>h1>span{
+  color:#246CF9;
+    
+  }
+  .content>p{
+    font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: center;
+  color: #777777;
+  }
+  .content>button{
+    font-family: "Inter";
+    margin-top: 25px;
+    border-radius: 30px;
+    border:none;
+    font-size: 17px;
+    line-height: 20px;
+    color: white;
+    width: 260px;
+    height: 50px;
+    /* padding: 12px 30px; */
+    background: linear-gradient(265.56deg, #246CF9 -0.27%, #1E68F6 -0.26%, #0047D0 98.59%);
+  }
+  
+  @media (max-width: 600px) {
+    .grid {
+      width: 100%;
+      flex-direction: column;
+    }
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    .card,
+    .footer {
+      border-color: #222;
+    }
+    .code {
+      background: #111;
+    }
+    .logo img {
+      filter: invert(1);
+    }
+  }
+  
