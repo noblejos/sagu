@@ -35,7 +35,15 @@ export default function Connect() {
         </div>
       </div>
       <footer className={styles.footer}>
-        
+        <div className={styles.left}>
+          <p>Privacy Policy</p>
+          <p>Terms of Service</p>
+          <p>Connect wallet</p>
+        </div>
+        <div className={styles.right}>
+          <p>@2022 sagu . All Right Reserved</p>
+          <p>Need help?</p>
+        </div>
       </footer>
     </div>
     </>
