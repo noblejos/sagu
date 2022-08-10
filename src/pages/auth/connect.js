@@ -34,7 +34,9 @@ export default function Connect() {
           <img src="/image/connect.png"  />
         </div>
       </div>
-      <footer className={styles.footer}></footer>
+      <footer className={styles.footer}>
+        
+      </footer>
     </div>
     </>
   )

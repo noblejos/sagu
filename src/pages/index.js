@@ -1,6 +1,6 @@
 import styles from "../styles/Home.module.css"
 import Communities from '../componets/helper/Communities'
-import Connect from '../componets/helper/connect'
+import Connect from '../componets/helper/Connect'
 import Footer from '../componets/helper/Footer'
 import Hero from '../componets/helper/Hero'
 import Top from '../componets/helper/Top'
