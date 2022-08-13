@@ -1,5 +1,5 @@
 import { useContext, useState } from "react"
-import Spinner from "../../componets/helper/Spinner"
+import Spinner from "../../componets/helper/spinner"
 import { AuthContext } from "../../context/authContext"
 import { SignUpFormContext } from "../../context/signUpFormContext"
 import signinHandshake from "../../services/post/signinHandshake"
