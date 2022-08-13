@@ -17,9 +17,9 @@ export default function SignIn() {
   const connect=async()=>{
     setIsPending(true)
     const web3 = new Web3(window.ethereum);
-    await window.ethereum.enable();
     
-      const account=  await ethereum.request({ method: 'eth_requestAccounts', params: [0] });
+    
+      const account=  await ethereum.request({ method: 'eth_requestAccounts', params: [] });
       console.log(account.toString())
       console.log("should connect");
       const signupShake = await signupHandshake({ walletAddress:account.toString() });
