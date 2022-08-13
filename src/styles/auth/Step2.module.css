@@ -1,5 +1,6 @@
 .container{
-    widows: 100%;
+  display: block;
+  margin: 50px 10px;
 }
 .container h1{
     text-align: center;
@@ -10,12 +11,15 @@
     line-height: 36px;
     color:#246CF9 ;
 }
+.main{
+    display: block;
+}
 .img{
     display:grid;
     grid-template-columns: 1fr 1fr 1fr;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
     /* width: 100px; */
     margin: 0 auto;
     width: 24%;
@@ -40,9 +44,149 @@
     color: #1A1A1A;
     /* margin: 0; */
 }
-.img img{
+.img>div{
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: white;
 }
+.img img{
+    width: 90px;
+    height: 90px;
+    border: 50%;
+}
+
+.profile {
+    border: 2px solid #246CF9;
+    border-radius: 50%;
+    margin-bottom: 12px;
+    /* padding:5px 20px; */
+    display: grid;
+    place-items: center;
+    
+  }
+ 
+  .profileBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin:10px 0; */
+    width: 90px;
+    height: 90px;
+  }
+  
+  .profileBtn img {
+    width: 50px;
+    height: 50px;
+  }
+  .profile button {
+    
+    /* border-radius: 16px; */
+    /* display: flex;
+    gap: 10px; */
+    cursor: pointer;
+    /* padding: 8px 20px; */
+    width: 60px;
+    height: 60px;
+    border: none;
+    background: white;
+  }
+
+  .preview{
+    width: 90px;
+    height: 90px;
+    border-radius: 50%; 
+  }
+
+.upload_container{
+    margin-top: 30px;
+}
+  
+  .uploads {
+    border: 1px dashed #d0d0d2;
+    border-radius: 16px;
+    width: 400px;
+  margin: 0 auto;
+    display: grid;
+    place-items: center;
+    
+  }
+  
+  .uploads h4 {
+    font-family: "Sora";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    text-align: center;
+    margin: 10px auto;
+    color: #0b213e;
+  }
+  
+  .uploads h3 {
+    font-family: "Sora";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    /* line-height: 0px; */
+     margin: 15px auto ;
+    text-align: center;
+    color: #838383;
+  }
+  .upBtn {
+    display: flex;
+    justify-content: center;
+  }
+  .uploads button {
+    font-family: 'Fredoka';
+    background: #1c83e5;
+    border-radius: 16px;
+    display: flex;
+    place-items: center;
+    margin: 15px auto;
+    gap: 10px;
+    cursor: pointer;
+    padding: 12px 26px;
+    color: white;
+    border: none;
+  }
+  
+  .uploads p {
+    font-family: "Fredoka";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 0px;
+    color: #fcfcfc;
+  }
+  .profilediv{
+    margin-bottom:30px;
+  }
+  .submitBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 10px;
+}
+  .submitBtn button{
+    background: #246CF9;
+    color: white;
+    padding: 20px 40px;
+    border-radius: 30px;
+    border:none ;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+  }
+  .errorI{
+    text-align: center;
+    color: red;
+    font-size: 14px;
+    font-family: "Inter";
+    font-weight: 400;
+}
+

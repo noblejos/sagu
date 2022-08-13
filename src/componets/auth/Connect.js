@@ -3,13 +3,13 @@ import { AuthContext } from '../../context/authContext'
 import SignIn from './SignIn'
 import SignUp from './SignUp'
 
-export default function Connect() {
+export default function Connect({uploadPresets, cloudName }) {
 
   const {address,setAddress,show,setShow}= useContext(AuthContext)
   return (
     <div>
-     {!show? 
-     <SignUp/>
+     {show? 
+     <SignUp uploadPresets={uploadPresets} cloudName={cloudName}/>
      :<SignIn/>
     }
     </div>
