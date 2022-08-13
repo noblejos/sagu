@@ -9,11 +9,11 @@ import Profile from '../helper/Profile';
 
 
 const img=[
-  "/image/profile/1.png",
-  "/image/profile/2.png",
-  "/image/profile/3.png",
-  "/image/profile/4.png",
-  "/image/profile/5.png",
+  "https://res.cloudinary.com/nfticket/image/upload/v1660415522/1_gee5sn.png",
+  "https://res.cloudinary.com/nfticket/image/upload/v1660415557/2_h9po3r.png",
+  "https://res.cloudinary.com/nfticket/image/upload/v1660415568/3_vtzjsx.png",
+  "https://res.cloudinary.com/nfticket/image/upload/v1660415577/4_z8ghtc.png",
+  "https://res.cloudinary.com/nfticket/image/upload/v1660415586/5_damwey.png",
 ]
 export default function Step2({submitForm}) {
   const imageDiv = useRef(null);
@@ -85,7 +85,7 @@ export default function Step2({submitForm}) {
           style={{border:selected==index?"4px solid purple":""}}>
             <img src={i} 
             onClick={()=>{setFormData({...formData,profileimage:i})
-           
+           console.log({profileimage})
             setPreview(null)
             }}
              />
