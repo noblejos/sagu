@@ -2,17 +2,20 @@ import Head from 'next/head';
 import styles from '../../styles/auth/Connect.module.css'
 import Nav from "../helper/Nav"
 import { AuthContext } from '../../context/authContext';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import signinHandshake from '../../services/post/signinHandshake';
 import signupHandshake from '../../services/post/signupHandshake';
 import Web3 from "web3"
 import axios from 'axios';
+import Spinner from '../helper/spinner';
 
 
 export default function SignIn() {
     const {address,setAddress,show,setShow}=useContext(AuthContext)
+    const [isPending, setIsPending]=useState(false)
   
   const connect=async()=>{
+    setIsPending(true)
     const web3 = new Web3(window.ethereum);
     await window.ethereum.enable();
     
@@ -21,16 +24,16 @@ export default function SignIn() {
       console.log("should connect");
       const signupShake = await signupHandshake({ walletAddress:account.toString() });
       console.log({signupShake})
-      setAddress(account.toString())
+      await setAddress(account.toString())
       if (signupShake.status== "error"){
         // signin user
     const signinShake = await signinHandshake({
-      walletAddress: address,
+      walletAddress: account.toString(),
     });
-    const signature = await web3.eth.personal.sign(signinShake.signMessage,address );
+    const signature = await web3.eth.personal.sign(signinShake.signMessage, account.toString());
     const loginResponse = await axios.post("/api/apiSigninUser", {
       signature,
-      walletAddress: address,
+      walletAddress: account.toString(),
     });
     if (loginResponse.data.status == "error") {
       setIsPending(false);
@@ -41,6 +44,7 @@ export default function SignIn() {
 
     console.log({ loginResponsedata:loginResponse.data });  
     alert("user loggedin succesfully")
+    setIsPending(false)
 
       }
       if (signupShake.status == "success") {
@@ -86,6 +90,8 @@ export default function SignIn() {
           <p>Need help?</p>
         </div>
       </footer>
+      
+      {isPending && <Spinner/>}
     </div>
     </>
   )
