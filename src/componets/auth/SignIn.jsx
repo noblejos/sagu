@@ -3,6 +3,7 @@ import styles from '../../styles/auth/Connect.module.css'
 import Nav from "../helper/Nav"
 import { AuthContext } from '../../context/authContext';
 import { useContext, useState } from 'react';
+import { useRouter } from 'next/router';
 import signinHandshake from '../../services/post/signinHandshake';
 import signupHandshake from '../../services/post/signupHandshake';
 import Web3 from "web3"
@@ -13,6 +14,7 @@ import Spinner from '../helper/spinner';
 export default function SignIn() {
     const {address,setAddress,show,setShow}=useContext(AuthContext)
     const [isPending, setIsPending]=useState(false)
+    const router=useRouter()
   
   const connect=async()=>{
     setIsPending(true)
@@ -43,8 +45,9 @@ export default function SignIn() {
     }
 
     console.log({ loginResponsedata:loginResponse.data });  
-    alert("user loggedin succesfully")
-    setIsPending(false)
+      // alert("user loggedin succesfully")
+    // setIsPending(false)
+    return router.push("/dashboard")
 
       }
       if (signupShake.status == "success") {
