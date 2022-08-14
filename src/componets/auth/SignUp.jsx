@@ -5,14 +5,14 @@ import { SignUpFormContext } from "../../context/signUpFormContext"
 import signinHandshake from "../../services/post/signinHandshake"
 import signupUser from "../../services/post/signupUser"
 import uploadImage from "../../services/uploadImage"
-import styles from "../../styles/auth/SignUp.module.css"
-import addSocial from "../../services/post/addSocials"
+import { useRouter } from "next/router"
 import Web3 from "web3"
 import axios from "axios"
 import Step1 from "./Step1"
 import Step2 from "./Step2"
 
 export default function SignUp({ uploadPresets, cloudName }) {
+  const router = useRouter()
   const [isPending, setIsPending]= useState(false)
   const {formData,setFormData,
     activeStep,setActiveStep,
@@ -130,8 +130,9 @@ export default function SignUp({ uploadPresets, cloudName }) {
     // console.log({ ress: responseS });
 
     console.log(loginResponse);
-    alert("your user profile have been created and you have been logged in")
-    setIsPending(false)
+    // alert("your user profile have been created and you have been logged in")
+    // setIsPending(false)
+    return router.push("/dashboard")
       }
 
   return (
