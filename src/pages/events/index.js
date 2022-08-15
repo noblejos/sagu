@@ -6,7 +6,7 @@ import Spinner from "../../componets/helper/spinner"
 import uploadImage from "../../services/uploadImage"
 import {verify} from "jsonwebtoken"
 
-export default function index({loggedUser}) {
+export default function event({loggedUser}) {
   const [isPending,setIsPending]=useState(false)
 const eventForm=useRef(null)
 
