@@ -5,9 +5,12 @@ import Footer from '../componets/helper/Footer'
 import Hero from '../componets/helper/Hero'
 import Top from '../componets/helper/Top'
 import Head from 'next/head'
-
-export default function Home() {
+import Nav from "../componets/helper/Nav"
+import { verify } from "jsonwebtoken";
+export default function Home({loggedUser}) {
   return (
+    <>
+    <Nav loggedUser={loggedUser}/>
     <div className={styles.container}>
        <Head>
         <title>Sagu</title>
@@ -20,5 +23,34 @@ export default function Home() {
       <Connect/>
       <Footer/>
     </div>
+    </>
   )
+}
+
+export async function getServerSideProps(context) {
+  const { req } = context;
+  const { cookies } = req;
+
+  console.log("where are you");
+  const jwt = cookies.UserJWT;
+  const secret = process.env.SECRET || "no hacking here";
+  // console.log("your secret is" + secret);
+  // let loggedUser={}
+  let loggedUser;
+
+  try {
+    loggedUser = verify(jwt, secret);
+  } catch (e) {
+    console.log(e);
+    loggedUser = {};
+  }
+  console.log({ loggedUser });
+
+//   const limit = 5
+// const response = await GetAllEvents()
+//   const allEvents =response.events
+//   console.log({allEvents})
+  // console.log({allEvents})
+
+  return {props:{ loggedUser}} ;
 }

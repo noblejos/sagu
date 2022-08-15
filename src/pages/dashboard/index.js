@@ -5,10 +5,10 @@ import Nav from "../../componets/helper/Nav";
 import styles from "../../styles/dashboard/Dashboard.module.css"
 
 
-export default function dashboard({loggedUser}) {
+export default function Dashboard({loggedUser}) {
   return (
     <>
-    <Nav/>
+    <Nav loggedUser={loggedUser}/>
     <div  className={styles.container}>
         <h1 className={styles.head}>Dashboard</h1>
         <Profile loggedUser={loggedUser} />
