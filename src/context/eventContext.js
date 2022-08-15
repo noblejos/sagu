@@ -5,14 +5,14 @@ export const  EventContext= createContext()
 
 export default function EventContextProvider({children}){
     const [formData,setFormData]=useState({ticketName:"",ticketType:"",
-                                            TransactionFee:"",transactionDescription:"",
-                                            TicketCategory:"",TicketPrice:"",ticketImage:""})
+                                            transactionFee:"",transactionDescription:"",
+                                            ticketCategory:"",ticketPrice:"",ticketImage:""})
 
-    const [formErrors,setFormError]=useState({ticketName:"",ticketType:"",
-                                                TransactionFee:"",transactionDescription:"",
-                                                TicketCategory:"",TicketPrice:"",ticketImage:""})
+    const [formError,setFormError]=useState({ticketName:"",ticketType:"",
+                                                transactionFee:"",transactionDescription:"",
+                                                ticketCategory:"",ticketPrice:"",ticketImage:""})
     return(
-        <EventContext.Provider value={{formData,setFormData,formErrors,setFormError}}>
+        <EventContext.Provider value={{formData,setFormData,formError,setFormError}}>
             {children}
         </EventContext.Provider>
     )

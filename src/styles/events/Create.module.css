@@ -127,3 +127,10 @@
     border-radius: 30px;
     border: none;
   }
+  .error{
+    color: red;
+    font-size: 14px;
+    font-family: "Inter";
+    font-weight: 400;
+
+}

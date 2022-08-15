@@ -14,29 +14,38 @@ const category = [
     {value:"fundriser",label:"Fundriser"},
 ]
 
-export default function Create() {
+export default function Create({create}) {
     const profileImageDiv = useRef(null);
     const [imageUrl, setImageUrl] = useState("");
-    const {formData,setFormData, formErrors,setFormErrors}=useContext(EventContext)
+    const {formData,setFormData, formError,setFormError}=useContext(EventContext)
     const {ticketName,ticketType,transactionFee,ticketDescription,
     ticketCategory,ticketPrice,ticketImage}=formData
-    console.log(formData)
+    
     
     function Validate(e){
         e.preventDefault()
+        console.log(formData)
         let  errorObj={}
 
         !ticketName?errorObj.ticketName="Field is required":null
         !ticketType?errorObj.ticketType="Field is required":null
-        !transactionFee?errorObj.transactionFee="Field is required":null
+      {!formData.ticketType=="free" && !transactionFee?errorObj.transactionFee="Field is required":null}
         !ticketDescription?errorObj.ticketDescription="Field is required":null
         !ticketCategory?errorObj.ticketCategory="Field is required":null
-        !ticketPrice?errorObj.ticketPrice="Field is required":null
+        {!formData.ticketType=="free" && !ticketPrice?errorObj.ticketPrice="Field is required":null}
         !ticketImage?errorObj.ticketImage="Field is required":null
-        if(Object.keys(errorObj).lenght==0){
-            console.log(cleared)
+        if(Object.keys(errorObj).lenght===0){
+            console.log("cleared")
         }
-        return setFormErrors(errorObj)
+        if (Object.keys(errorObj).length===0){
+          console.log("next")
+         
+          setFormError(errorObj)
+          return create()
+        }
+       setFormError(errorObj)
+      console.log("err")
+      return 
     }
 
     function handleChange(e) {
@@ -44,7 +53,7 @@ export default function Create() {
         const reader = new FileReader();
         reader.onload = function (onLoadEvent) {
           setImageUrl(onLoadEvent.target.result);
-          console.log(onLoadEvent.target.result)
+          // console.log(onLoadEvent.target.result)
         };
         reader.readAsDataURL(e.target.files[0]);
       }
@@ -62,7 +71,7 @@ export default function Create() {
                     placeholder="Ticket name"
                     onChange={(e)=>setFormData({...formData,ticketName:e.target.value})}
                     />
-                    <div className={styles.error}>{formErrors.ticketName}</div>
+                   {formError.ticketName && <div className={styles.error}>{formError.ticketName}</div>}
                 </div>
                 <div className={styles.inp}>
                     <p>Ticket Type</p>
@@ -73,7 +82,7 @@ export default function Create() {
                     options={type}
                     >
                     </Select>
-                    <div className={styles.error}>{formErrors.ticketType}</div>
+                   {formError.ticketType&& <div className={styles.error}>{formError.ticketType}</div>}
                 </div>
                 {formData.ticketType=="free"?"":
                 <div className={styles.inp}>
@@ -83,16 +92,17 @@ export default function Create() {
                     value={transactionFee}
                     onChange={(e)=>setFormData({...formData,transactionFee:e.target.value})}
                     />
-                    <div className={styles.error}>{formErrors.transactionFee}</div>
+                    {formError.transactionFee&&<div className={styles.error}>{formError.transactionFee}</div>}
                      </div>}
                     <div className={styles.inp}>
                         <p>Transaction Description</p>
                         <textarea name="ticketdescription" 
+                        placeholder="Ticket Description"
                         value={ticketDescription}
-                        onChange={(e)=>setFormData({...formData,transactionDescription:e.target.value})}
+                        onChange={(e)=>setFormData({...formData,ticketDescription:e.target.value})}
 
                         ></textarea>
-                        <div className={styles.error}>{formErrors.transactionDescription}</div>
+                        {formError.ticketDescription&&<div className={styles.error}>{formError.ticketDescription}</div>}
                     </div>
                
             </div>
@@ -105,7 +115,7 @@ export default function Create() {
                 onChange={(options)=>setFormData({...formData,ticketCategory:options.value})}
                 options={category}
                 ></Select>
-                <div className={styles.error}>{formErrors.ticketCategory}</div>
+                {formError.ticketCategory&&<div className={styles.error}>{formError.ticketCategory}</div>}
                 </div>
                {formData.ticketType=="free"?"":
                <div className={styles.inp}>
@@ -115,7 +125,7 @@ export default function Create() {
                     value={ticketPrice}
                     onChange={(e)=>setFormData({...formData,ticketPrice:e.target.value})}
                     />
-                    <div className={styles.error}>{formErrors.ticketPrice}</div>
+                   {formError.ticketPrice&& <div className={styles.error}>{formError.ticketPrice}</div>}
                 </div>}
                 <div className={styles.inp}>
                 <div className={styles.uploads}>
@@ -143,14 +153,14 @@ export default function Create() {
                         profileImageDiv.current.click();
                       }}
                     >
-                      <img src="/svg/cloud-upload 1.svg" />
+                      <img src="/image/cloud-upload 1.svg" />
                       <span>upload</span>
                     </button>
                     <input
                       onChange={handleChange}
                       value={ticketImage}
                       ref={profileImageDiv}
-                      name={"profile"}
+                      name={"ticketimage"}
                       type="file"
                       accept="image/png, image/gif, image/jpeg"
                       style={{ display: "none" }}
@@ -159,7 +169,7 @@ export default function Create() {
                   </div>
                 </div>
               </div>
-              <div className={styles.error}>{formErrors.ticketImage}</div>
+              {formError && <div className={styles.error}>{formError.ticketImage}</div>}
                 </div>
             </div>
         </div>

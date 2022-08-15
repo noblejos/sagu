@@ -1,5 +1,5 @@
 import styles from "../../styles/componets/helper/Hero.module.css"
-import Nav from "../helper/Nav"
+
 import Card from "./Card"
 import Link from "next/link"
 
@@ -7,7 +7,7 @@ import Link from "next/link"
 export default function Hero() {
   return (
     <>
-    <Nav/>
+    
     <div className={styles.container}>
         <div className={styles.text}>
             <h1>Connecting Creative communities via NFTs</h1>
