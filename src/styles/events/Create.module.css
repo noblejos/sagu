@@ -1,0 +1,129 @@
+.content{
+    padding: 20px 50px;
+}
+.content h1{
+    font-family: 'Sora';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 36px;
+    color: #1A1A1A;
+}
+.content h3{
+    font-family: 'Graphik';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 20px;
+    color: #838383;
+}
+.main{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+}
+.inp{
+    margin-top: 25px;
+}
+.inp input,
+.inp textarea{
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    outline: none;
+    border: 1px solid #CACACA;
+    border-radius: 3px;
+}
+.inp textarea{
+    height: 120px;
+}
+.inp input::placeholder{
+    color: #838383;
+    font-family: "Inter";
+    font-size: 14px;
+    font-weight: lighter;
+}
+.inp p{
+    font-family: 'Graphik';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    display: flex;
+    align-items: center;
+    color: #2F2D2D;
+    margin: 8px 0;
+}
+.uploads {
+    border: 1px dashed #d0d0d2;
+    border-radius: 16px;
+    width: 400px;
+    display: grid;
+    place-items: center;
+    margin-top: 55px;
+    
+  }
+  
+  .uploads h4 {
+    font-family: "Graphik";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    text-align: center;
+    margin: 10px auto;
+    color: #0b213e;
+  }
+  
+  .uploads h3 {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    /* line-height: 0px; */
+     margin: 15px auto ;
+    text-align: center;
+    color: #838383;
+  }
+  .upBtn {
+    display: flex;
+    justify-content: center;
+  }
+  .uploads button {
+    font-family: 'Graphik';
+    background: #1c83e5;
+    border-radius: 16px;
+    display: flex;
+    place-items: center;
+    margin: 15px auto;
+    gap: 10px;
+    cursor: pointer;
+    padding: 12px 26px;
+    color: white;
+    border: none;
+  }
+  
+  .uploads p {
+    font-family: "Graphik";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 0px;
+    color: #fcfcfc;
+  }
+  .previewimg {
+    font-family: "Graphik";
+    object-fit: cover;
+    height:158px;
+    width: 400px;
+    border-radius: 12px;
+  }
+  .content button{
+    font-family: "Graphik";
+    margin-top: 15px;
+    color: white;
+    padding: 15px 30px;
+    font-size: 16px;
+    background: linear-gradient(265.56deg, #246CF9 -0.27%, #1E68F6 -0.26%, #0047D0 98.59%);
+    border-radius: 30px;
+    border: none;
+  }
