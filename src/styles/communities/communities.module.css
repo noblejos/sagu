@@ -4,15 +4,27 @@
 }
 .head{
     display: flex;
+    /* grid-template-columns: 1fr 1fr; */
     justify-content: space-between;
+    align-items: center;
 }
-.head h3{
-    font-family:"Sora";
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 45px;
-    color: #246CF9;
-    cursor: pointer;
+.search{
+    width: 40%;
+}
+.search>div{
+    display: flex;
+    align-items: center;
+    gap:8px;
+    border: 1px solid #CACACA;
+    border-radius: 10px;
+    padding: 10px;
+    
+}
+.search input{
+    border: none;
+    width: 100%;
+    outline: none;
+    font-size: 18px;
 }
 .container h1{
     margin-bottom: 20px;
@@ -25,7 +37,7 @@
 }
 .content{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 20px;
 }
 .card{

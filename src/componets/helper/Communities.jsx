@@ -1,4 +1,5 @@
 import styles from "../../styles/componets/helper/Communities.module.css"
+import Link from "next/link"
 
 export default function Communities() {
    
@@ -14,8 +15,9 @@ const data=[item,item,item,]
 
   return (
     <div className={styles.container}>
-      <div><h1>Communities</h1>
-      {/* <img src="" alt="" /> */}
+      <div className={styles.head}>
+        <h1>Communities</h1>
+        <Link href="/communities"><h3>More</h3></Link>
       </div>  
         <div className={styles.content}>
         {data.map((item,index)=> (
