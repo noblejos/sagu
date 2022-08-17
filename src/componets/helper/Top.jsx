@@ -1,3 +1,4 @@
+import Link from "next/link"
 import styles from "../../styles/componets/helper/Top.module.css"
 
 export default function Top() {
@@ -27,7 +28,7 @@ const item1={
         </div>
         <div className={styles.main}>
             {data.map((item, index)=>(
-                <div className={styles.card} key={index}>
+               <Link href='/tickets'><div className={styles.card} key={index}>
                     <div className={styles.image}>
                     <img src={item.img}  />
                     <span>Tickets Left: <p>{item.TicketsLeft}</p>
@@ -38,7 +39,7 @@ const item1={
                     <p>{item.date}</p>
                     <p>{item.venue}</p>
                     </div>
-                </div>
+                </div></Link>
             ))}
         </div>
         

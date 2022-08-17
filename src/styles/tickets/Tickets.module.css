@@ -1,33 +1,106 @@
 .container{
-    padding: 60px;
+    margin-top: 0px;
+    padding: 70px 80px;
 }
-.head{
+.content{
+    display: grid;
+    gap: 60px;
+    grid-template-columns: 1fr 1fr;
+    /* background: #E5E5E5; */
+    margin-top: 0;
+    
+}
+.content img{
+    width: 100%;
+    height: 435px;
+}
+
+.ticket_desc h1{
+    font-family: 'Sora';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 40px;
+    text-transform: capitalize;
+}
+.ticket_desc p{
+    font-family: 'Graphik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    color: #5D6065;
+}
+.title{
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    align-items: end;
-    margin-bottom: 30px;
 }
-.head h1{
+.title h4{
+    font-family: 'Graphik';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 150%;
+    letter-spacing: 0.5px;
+    color: #0E0E0E;
+}
+.title p{
+    font-family: 'Sora';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 33px;
+color:  #246CF9;
+}
+
+.buy{
+    display: grid;
+    margin-top: 50px;
+    grid-template-columns: 1fr 1fr;
+}
+.buy h3{
+    font-family: 'Sora';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 35px;
+    text-transform: capitalize;
+    color: #0E0E0E;
+    margin: 0;
+}
+.buy>h3>span{
+    font-family: 'Graphik';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    color: #838383;
+}
+.buy button{
+    width: 80%;
+    border: none;
+    color: white;
+    background: #246CF9;
+    font-family: 'Graphik';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 20px;
+    padding: 15px;
+    border-radius: 30px;
+}
+.other{
+    margin-top: 100px;
+}
+.other h1{
     font-family: 'Sora';
     font-style: normal;
     font-weight: 600;
     font-size: 36px;
     line-height: 45px;
     color: #0E0E0E;
-}
-.head>span{
-    font-family: 'Graphik';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 20px;
-    letter-spacing: 0.5px;
-    color: #0E0E0E;
-    cursor: pointer;
-}
-.head>span:hover{
-color: #0047D0;
-/* color: white; */
+    margin-bottom: 60px;
 }
 .main{
     display: grid;
@@ -38,7 +111,6 @@ color: #0047D0;
     background: #FFFFFF;
     box-shadow: 0px 8px 60px 3px rgba(82, 93, 104, 0.05);
     border-radius: 5px;
-    cursor: pointer;
 }
 .image{
     position: relative;
