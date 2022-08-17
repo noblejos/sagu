@@ -28,7 +28,7 @@ const item1={
         </div>
         <div className={styles.main}>
             {data.map((item, index)=>(
-               <Link href='/tickets'><div className={styles.card} key={index}>
+               <Link href='/tickets' key={index}><div className={styles.card} >
                     <div className={styles.image}>
                     <img src={item.img}  />
                     <span>Tickets Left: <p>{item.TicketsLeft}</p>
