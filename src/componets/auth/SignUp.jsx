@@ -21,7 +21,6 @@ export default function SignUp({ uploadPresets, cloudName }) {
 
     async function signUpUser(){
       const web3 = new Web3(window.ethereum);
-    await window.ethereum.enable();
       setIsPending(true)
         const profileImg=new FormData()
     profileImg.append("file", formData.profileimage)

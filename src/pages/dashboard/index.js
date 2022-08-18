@@ -25,7 +25,6 @@ export async function getServerSideProps({req}) {
     const jwt= cookies.UserJWT;
   
     if(!jwt){
-  
       return {
         redirect:{
           permanent:false,
