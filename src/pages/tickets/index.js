@@ -1,7 +1,7 @@
 import Footer from "../../componets/helper/Footer"
 import Nav from "../../componets/helper/Nav"
 import styles from "../../styles/tickets/Tickets.module.css"
-import {verify} from "jsonwebtokenP"
+import {verify} from "jsonwebtoken"
 
 export default function tickets({loggedUser}) {
     const item1={
