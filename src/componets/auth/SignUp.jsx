@@ -89,11 +89,10 @@ export default function SignUp({ uploadPresets, cloudName }) {
 
     // signin user
     const signinShake = await signinHandshake({
-      // walletAddress: response.walletAddress,
       walletAddress: address,
     });
-    const signature = await web3.eth.personal.sign(signinShake.signMessage,address );
-    const loginResponse = await axios.post("/api/apiSigninUser", {
+    const signature = await web3.eth.sign(signinShake.signMessage,address );
+    const loginResponse = await axios.post("/api/apiSigninUser",{
       signature,
       walletAddress: address,
     });

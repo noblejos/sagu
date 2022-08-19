@@ -11,6 +11,7 @@ import axios from 'axios';
 import Spinner from '../helper/spinner';
 
 
+
 export default function SignIn() {
     const {address,setAddress,show,setShow}=useContext(AuthContext)
     const [isPending, setIsPending]=useState(false)
@@ -21,22 +22,25 @@ export default function SignIn() {
     const web3 = new Web3(window.ethereum);
     
     
-      const account=  await ethereum.request({ method: 'eth_requestAccounts', params: [] });
+      // const account=  await ethereum.request({ method: 'eth_requestAccounts', params: [] });
+      const account = await web3.eth.getAccounts();
       console.log(account.toString())
       console.log("should connect");
       const signupShake = await signupHandshake({ walletAddress:account.toString() });
       console.log({signupShake})
-      await setAddress(account.toString())
+      await setAddress(account)
       if (signupShake.status== "error"){
         // signin user
     const signinShake = await signinHandshake({
       walletAddress: account.toString(),
     });
-    const signature = await web3.eth.personal.sign(signinShake.signMessage, account.toString());
+    const signature = await web3.eth.sign(signinShake.signMessage, account.toString());
+    console.log({signature})
     const loginResponse = await axios.post("/api/apiSigninUser", {
-      signature,
+      signature:signature.signature,
       walletAddress: account.toString(),
     });
+    console.log(loginResponse)
     if (loginResponse.data.status == "error") {
       setIsPending(false);
       // alert(loginResponse.data.msg || "Something went wrong");
