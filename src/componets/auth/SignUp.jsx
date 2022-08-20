@@ -87,13 +87,16 @@ export default function SignUp({ uploadPresets, cloudName }) {
     console.log(response.data);
     console.log("signed up")
 
+    const account = await web3.eth.getAccounts();
+    console.log({account})
+
     // signin user
     const signinShake = await signinHandshake({
       walletAddress: address,
     });
     const signature = await web3.eth.sign(signinShake.signMessage,address );
     const loginResponse = await axios.post("/api/apiSigninUser",{
-      signature,
+      signature:signature.signature,
       walletAddress: address,
     });
     if (loginResponse.data.status == "error") {

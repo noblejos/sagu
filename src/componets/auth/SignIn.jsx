@@ -22,13 +22,13 @@ export default function SignIn() {
     const web3 = new Web3(window.ethereum);
     
     
-      // const account=  await ethereum.request({ method: 'eth_requestAccounts', params: [] });
-      const account = await web3.eth.getAccounts();
+      const account=  await ethereum.request({ method: 'eth_requestAccounts', params: [] });
+      // const account = await web3.eth.getAccounts();
       console.log(account.toString())
       console.log("should connect");
       const signupShake = await signupHandshake({ walletAddress:account.toString() });
       console.log({signupShake})
-      await setAddress(account)
+      setAddress(account.toString())
       if (signupShake.status== "error"){
         // signin user
     const signinShake = await signinHandshake({

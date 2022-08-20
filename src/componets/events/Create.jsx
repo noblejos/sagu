@@ -11,7 +11,7 @@ const category = [
     {value:"single",label:"Single"},
     {value:"membership",label:"Membership"},
     {value:"donation",label:"Donation"},
-    {value:"fundriser",label:"Fundriser"},
+    {value:"fundraiser",label:"Fundraiser"},
 ]
 
 export default function Create({create}) {
@@ -88,15 +88,17 @@ export default function Create({create}) {
                 <div className={styles.inp}>
                     <p>Transaction Fee</p>
                     <input type="number" 
-                    name="transactionfee"
+                    name={"transactionfee"}
                     value={transactionFee}
                     onChange={(e)=>setFormData({...formData,transactionFee:e.target.value})}
                     />
                     {formError.transactionFee&&<div className={styles.error}>{formError.transactionFee}</div>}
                      </div>}
+                   
                     <div className={styles.inp}>
                         <p>Transaction Description</p>
-                        <textarea name="ticketdescription" 
+                        <textarea 
+                        name="ticketdescription" 
                         placeholder="Ticket Description"
                         value={ticketDescription}
                         onChange={(e)=>setFormData({...formData,ticketDescription:e.target.value})}
@@ -120,7 +122,8 @@ export default function Create({create}) {
                {formData.ticketType=="free"?"":
                <div className={styles.inp}>
                     <p>Ticket Price</p>
-                    <input type="text" 
+                    <input type="number" 
+                    name={"ticketprice"}
                     placeholder="Ticket price"
                     value={ticketPrice}
                     onChange={(e)=>setFormData({...formData,ticketPrice:e.target.value})}
