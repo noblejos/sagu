@@ -11,7 +11,7 @@ import axios from 'axios';
 import Spinner from '../helper/spinner';
 
 
-
+// const provider = 'https://rpc.l16.lukso.network';
 export default function SignIn() {
     const {address,setAddress,show,setShow}=useContext(AuthContext)
     const [isPending, setIsPending]=useState(false)
@@ -20,10 +20,40 @@ export default function SignIn() {
   const connect=async()=>{
     setIsPending(true)
     const web3 = new Web3(window.ethereum);
+    // await provider.enable();
+    // const web3 = new Web3(provider);
+
+    // add network
+      try {
+        if (!window.ethereum) throw new Error("No crypto wallet found");
+        await window.ethereum.request({
+          method: "wallet_addEthereumChain",
+          params: [
+            {
+              chainId: `0x${Number(2828).toString(16)}`,
+              chainName: 'L16',
+              nativeCurrency: {
+                name: "LUKSO",
+                symbol: "LYXt",
+                decimals: 18
+              },
+              rpcUrls: ['https://rpc.l16.lukso.network'] /* ... */,
+              blockExplorerUrls: ["https://explorer.execution.l16.lukso.network"]
+            },
+          ]
+        });
+      } catch (err) {
+        alert(err.message);
+      }
     
-    
+
+
+
+
+
+
       const account=  await ethereum.request({ method: 'eth_requestAccounts', params: [] });
-      // const account = await web3.eth.getAccounts();
+      // const accounts= await web3.eth.getAccounts();
       console.log(account.toString())
       console.log("should connect");
       const signupShake = await signupHandshake({ walletAddress:account.toString() });
@@ -34,10 +64,10 @@ export default function SignIn() {
     const signinShake = await signinHandshake({
       walletAddress: account.toString(),
     });
-    const signature = await web3.eth.sign(signinShake.signMessage, account.toString());
+    const signature = await web3.eth.personal.sign(signinShake.signMessage, account.toString());
     console.log({signature})
     const loginResponse = await axios.post("/api/apiSigninUser", {
-      signature:signature.signature,
+      signature:signature,
       walletAddress: account.toString(),
     });
     console.log(loginResponse)
