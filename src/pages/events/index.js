@@ -11,9 +11,10 @@ import { AuthContext } from "../../context/authContext";
 import { startProcess } from "../../Data/data";
 import { useRouter } from "next/router";
 import Web3 from "web3"
-import Moralis from "moralis";
+// import Moralis from "moralis";
 // import {mint} from "react-moralis"
 import {contractABI, contractAddress} from "../../Data/data"
+import Info from "../../componets/events/Info";
 // import { AuthContext } from "../../context/authContext";
 
 
@@ -70,25 +71,39 @@ if (response.status == "error") {
   setIsPending(false);
   return;
 }
+
 //  alert("event minting sucessfull")
 //  router.push("/dashboard")
  console.log({response: response.data.data[0].pinataStuff})
  const myC=response.data.data[0].pinataStuff.IpfsHash;
-const metadataURI = `ipfs://${myC}`;
+ const metadataURI = `ipfs://${myC}`;
   // const metadataURI = "ipfs://bafkreica3mqdef7bahxbuyg3qssfhe7u7vls4n6s7innf3i77j55r47xby";
   console.log(metadataURI)
 
   const contract = new web3.eth.Contract(contractABI, contractAddress);
       try {
-        var _mintAmount=3
+        var _mintAmount=1
         var _tokenURI=metadataURI
         var mintRate=Number(await contract.methods.cost().call())
-        var totalAmount = mintRate * _mintAmount
-        const response = await contract.methods.mint( _mintAmount,account).send({ from: account, value:String(totalAmount)})
-        const tokenId = response.events.Transfer.returnValues.tokenId;
-        alert(
-          `NFT successfully minted. Contract address - ${contractAddress} and Token ID - ${tokenId}`
-        )
+        var totalAmount = mintRate * _mintAmount;
+        const response = await contract.methods.mint(_mintAmount, _tokenURI).send({ from: account, value:String(totalAmount)})
+       const  txHash = response.transactionHash;
+       console.log(txHash)
+
+
+  
+      const receipt = await web3.eth.getTransactionReceipt(txHash)
+      const mintAmountRange = Array.from({length: _mintAmount}, (v, i) => i)
+      const mintAmountRangeToToken = mintAmountRange.map(index => Web3.utils.hexToNumber(receipt.logs[index].topics[3]) )
+     
+      console.log({mintAmountRangeToToken})
+      console.log(tokenId1)
+        // console.log(response)
+        // const tokenId = response.events.Transfer.returnValues.tokenId;
+        // console.log([tokenId])
+        // alert(
+        //   `NFT successfully minted. Contract address - ${contractAddress} and Token ID - ${[tokenId]}`
+        // )
 
       } catch (error) {
         console.log(error)
@@ -115,8 +130,10 @@ const metadataURI = `ipfs://${myC}`;
           ref={eventForm}
           >
         <Create create={()=>create()}/>
+        <Info/>
         </form>
         {isPending&&<Spinner/>}
+        
         </EventContextProvider>
     </div>
     </>

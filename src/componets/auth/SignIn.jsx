@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import styles from '../../styles/auth/Connect.module.css'
-import Nav from "../helper/Nav"
+
 import { AuthContext } from '../../context/authContext';
 import { useContext, useState } from 'react';
 import { useRouter } from 'next/router';
@@ -46,12 +46,6 @@ export default function SignIn() {
         alert(err.message);
       }
     
-
-
-
-
-
-
       const account=  await ethereum.request({ method: 'eth_requestAccounts', params: [] });
       // const accounts= await web3.eth.getAccounts();
       console.log(account.toString())
@@ -97,7 +91,7 @@ export default function SignIn() {
 }
   return (
     <>
-    <Nav/>
+    
     <div className={styles.container}>
       <Head>
         <title>Sagu</title>

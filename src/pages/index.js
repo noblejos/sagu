@@ -34,8 +34,7 @@ export async function getServerSideProps(context) {
   console.log("where are you");
   const jwt = cookies.UserJWT;
   const secret = process.env.SECRET || "no hacking here";
-  // console.log("your secret is" + secret);
-  // let loggedUser={}
+
   let loggedUser;
 
   try {
@@ -46,11 +45,6 @@ export async function getServerSideProps(context) {
   }
   console.log({ loggedUser });
 
-//   const limit = 5
-// const response = await GetAllEvents()
-//   const allEvents =response.events
-//   console.log({allEvents})
-  // console.log({allEvents})
 
   return {props:{ loggedUser}} ;
 }

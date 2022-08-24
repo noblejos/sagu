@@ -1,6 +1,6 @@
 import '../styles/globals.css'
 import { ThirdwebWeb3Provider } from "@3rdweb/hooks";
-import { MoralisProvider } from "react-moralis";
+// import { MoralisProvider } from "react-moralis";
 
 const supportedChainIds = [1, 4, 137];
 const connectors = {
@@ -16,12 +16,12 @@ function MyApp({ Component, pageProps }) {
       supportedChainIds={supportedChainIds}
       connectors={connectors}
     > 
-    <MoralisProvider
+    {/* <MoralisProvider
       appId={"aHfvLwbzNpErI12OK1uj2JaN6XUBEGwxL3FwQ2oU"}
       serverUrl={"https://yimx3ecennxi.usemoralis.com:2053/server"}
-    >
+    > */}
     <Component {...pageProps} />
-    </MoralisProvider>
+    {/* </MoralisProvider> */}
     </ThirdwebWeb3Provider>
     
     </div>
