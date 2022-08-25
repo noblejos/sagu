@@ -19,7 +19,7 @@ export default function Card() {
   useEffect(() => {
     setTimeout(() => {
       setIndex((index + 1) % cards.length);
-      console.log(index);
+      // console.log(index);
     }, 3000);
   }, [index]);
   return (

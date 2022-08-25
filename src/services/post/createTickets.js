@@ -2,10 +2,10 @@ import axios from "axios"
 import baseUrl from "../../config/baseUrl"
 
 
-const createEvent=async ({formData, headers})=>{
+const createTicket=async ({formData, headers})=>{
     try {
-        const response=await axios.post(`${baseUrl}/events/create`, formData, {headers})
-
+        const response=await axios.post(`${baseUrl}/ticket/create`, formData, {headers})
+        console.log({formData, headers})
         return {...response}
 
     } catch (error) {
@@ -15,4 +15,4 @@ const createEvent=async ({formData, headers})=>{
         return { status: "error", msg: errorMsg};
     }
 }
-export default createEvent
+export default createTicket

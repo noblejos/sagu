@@ -22,12 +22,10 @@ export default function SignUp({ uploadPresets, cloudName }) {
     FormErrors,
     setFormErrors,
   } = useContext(SignUpFormContext);
-
   const { address } = useContext(AuthContext);
 
   async function signUpUser() {
     const web3 = new Web3(window.ethereum);
-    await window.ethereum.enable();
     setIsPending(true);
     const profileImg = new FormData();
     profileImg.append("file", formData.profileimage);
@@ -92,17 +90,16 @@ export default function SignUp({ uploadPresets, cloudName }) {
     console.log(response.data);
     console.log("signed up");
 
+    const account = await web3.eth.getAccounts();
+    console.log({ account });
+
     // signin user
     const signinShake = await signinHandshake({
-      // walletAddress: response.walletAddress,
       walletAddress: address,
     });
-    const signature = await web3.eth.personal.sign(
-      signinShake.signMessage,
-      address
-    );
+    const signature = await web3.eth.sign(signinShake.signMessage, address);
     const loginResponse = await axios.post("/api/apiSigninUser", {
-      signature,
+      signature: signature.signature,
       walletAddress: address,
     });
     if (loginResponse.data.status == "error") {
