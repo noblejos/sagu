@@ -34,7 +34,7 @@ export default function Create({create}) {
         !ticketCategory?errorObj.ticketCategory="Field is required":null
         {!formData.ticketType=="free" && !ticketPrice?errorObj.ticketPrice="Field is required":null}
         !ticketImage?errorObj.ticketImage="Field is required":null
-        if(Object.keys(errorObj).lenght===0){
+        if(Object.keys(errorObj).length===0){
             console.log("cleared")
         }
         if (Object.keys(errorObj).length===0){
