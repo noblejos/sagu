@@ -1,6 +1,6 @@
 import styles from "../../styles/events/TicketInfo.module.css"
 
-export default function Info() {
+export default function Info({mintTicket}) {
   return (
     <div className={styles.info}>
         <div className={styles.bg}>
@@ -37,7 +37,7 @@ export default function Info() {
             </div>
         </div>
             <div className={styles.mint}>
-                <button>MINT</button>
+                <button onClick={mintTicket}>MINT</button>
             </div>
     </div>
   )
