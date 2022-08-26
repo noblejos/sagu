@@ -1,5 +1,9 @@
 .info {
-  padding: 2em;
+  padding: 2em 5em;
+  position:fixed;
+  inset: 0 0 0 0;
+  background-color: white;
+  /* padding: ; */
 }
 .edit {
   width: 636px;
@@ -165,6 +169,7 @@
   color: #2f2d2d;
 }
 .mint {
+  margin-top: 0;
   display: flex;
   justify-content: center;
   align-items: center;
