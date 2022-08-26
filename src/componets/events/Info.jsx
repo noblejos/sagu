@@ -2,9 +2,11 @@ import Link from "next/link";
 import styles from "../../styles/events/TicketInfo.module.css";
 import { useState } from "react";
 import MintModal from "./MintModal";
+import Successful from "./successfulModal";
 
 export default function Info() {
   const [mintModal, setMintModal] = useState(false);
+  const [Successful, setSuccessful] = useState(false);
 
   function handleClick(e) {
     e.preventDefault();
