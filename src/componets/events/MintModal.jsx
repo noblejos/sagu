@@ -4,11 +4,11 @@ export default function MintModal({ close }) {
   return (
     <div className={styles.container}>
       <div className={styles.card}>
-        <img
+        {/* <img
           src="/image/closemodal.svg"
           onClick={close}
           className={styles.close}
-        />
+        /> */}
 
         <div className={styles.main}>
           <div>

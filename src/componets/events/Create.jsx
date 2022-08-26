@@ -34,6 +34,7 @@ export default function Create({create}) {
         !ticketCategory?errorObj.ticketCategory="Field is required":null
         {!formData.ticketType=="free" && !ticketPrice?errorObj.ticketPrice="Field is required":null}
         !ticketImage?errorObj.ticketImage="Field is required":null
+        !ticketPrice?errorObj.ticketPrice="Field is required":null
         if(Object.keys(errorObj).length===0){
             console.log("cleared")
         }
@@ -114,7 +115,7 @@ export default function Create({create}) {
                 <Select
                 name="ticketcategory"
                 defaultValue={ticketCategory}
-                onChange={(options)=>setFormData({...formData,ticketCategory:options.value})}
+                onChange={(category)=>setFormData({...formData,ticketCategory:category.value})}
                 options={category}
                 ></Select>
                 {formError.ticketCategory&&<div className={styles.error}>{formError.ticketCategory}</div>}
