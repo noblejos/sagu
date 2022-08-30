@@ -5,7 +5,7 @@ import baseUrl from "../../config/baseUrl";
 const GetUsersEvents=async ({username})=>{
     try {
 
-        const response=await axios.get(`${baseUrl}/events/list/${username}?skip=0&limit=0`)
+        const response=await axios.get(`${baseUrl}/ticket/get/minted-data?username=${username}`)
         // console.log(response)
         const res=response.data.data[0]
         

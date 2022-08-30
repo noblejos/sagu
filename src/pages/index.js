@@ -7,7 +7,10 @@ import Top from '../componets/helper/Top'
 import Head from 'next/head'
 import Nav from "../componets/helper/Nav"
 import { verify } from "jsonwebtoken";
-export default function Home({loggedUser}) {
+import GetAllEvents from "../services/get/getAllEvents"
+
+export default function Home({loggedUser, tickets}) {
+  
   return (
     <>
     <Nav loggedUser={loggedUser}/>
@@ -19,7 +22,7 @@ export default function Home({loggedUser}) {
       </Head>
       <Hero/>
       <Communities/>
-      <Top/>
+      <Top  tickets={tickets}/>
       <Connect/>
       <Footer/>
     </div>
@@ -44,7 +47,9 @@ export async function getServerSideProps(context) {
     loggedUser = {};
   }
   console.log({ loggedUser });
+  let limit = 4
+ const response =await GetAllEvents({limit})
+ const tickets = response
 
-
-  return {props:{ loggedUser}} ;
+  return {props:{ loggedUser,tickets}} ;
 }

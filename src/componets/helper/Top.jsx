@@ -1,9 +1,13 @@
 import Link from "next/link"
 import styles from "../../styles/componets/helper/Top.module.css"
 
-export default function Top() {
+export default function Top({tickets}) {
+    // console.log(tickets.lenght)
+    const res= tickets.map(each=> each.ticketId)
+    console.log(res)
+    // console.log(res.lenght)
 
-const item1={
+    const item1={
         img:'/image/top1.png',
         title: "Awesome Rock music Live concert @Wariwick 2022",
         date:'08/08/2022',
@@ -24,22 +28,23 @@ const item1={
     <div className={styles.container}>
         <div className={styles.head}>
         <h1> Top Selling Tickets</h1>
-        <span>More</span>
+        <span><Link href="/tickets/tickets">More</Link></span>
         </div>
         <div className={styles.main}>
-            {data.map((item, index)=>(
-               <Link href='/tickets' key={index}><div className={styles.card} >
+            {res.map((ticket, index)=>(
+               <Link href={`/tickets/${ticket.name}`} key={index}><div className={styles.card} >
                     <div className={styles.image}>
-                    <img src={item.img}  />
-                    <span>Tickets Left: <p>{item.TicketsLeft}</p>
-                    </span>
+                    <img src={ticket.coverImage}  />
+                     <span>Tickets Left: <p>{index+1}</p>
+                    </span> 
                     </div>
                     <div className={styles.text}>
-                    <h3>{item.title}</h3>
-                    <p>{item.date}</p>
-                    <p>{item.venue}</p>
+                    <h3>{ticket.name}</h3> 
+                    <p>{ticket.desc}</p> 
+                    <p>{ticket.type}</p> 
                     </div>
-                </div></Link>
+                </div>
+                </Link>
             ))}
         </div>
         

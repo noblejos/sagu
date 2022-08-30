@@ -7,8 +7,14 @@ import styles from "../../styles/dashboard/MyTickets.module.css"
     date:"August 08, 2022"
 }
 
-export default function MyTickets() {
+export default function MyTickets({myEvents}) {
+  const res= myEvents.map(each=> each.ticket)
+  console.log({res})
+
+  
+
     const items=[data,data,data,data,data,data,data,data]
+
   return (
     <div className={styles.tickets}>
         {items.map((item, index)=>(

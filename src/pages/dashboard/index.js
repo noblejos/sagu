@@ -3,16 +3,24 @@ import {verify} from "jsonwebtoken"
 import EventPorfolio from "../../componets/dashboard/EventPorfolio";
 import Nav from "../../componets/helper/Nav";
 import styles from "../../styles/dashboard/Dashboard.module.css"
+import GetUsersEvents from "../../services/get/getUserEvents";
+import GetBoughtEvent from "../../services/get/getBoughtEvent";
 
 
-export default function Dashboard({loggedUser}) {
+export default function Dashboard({loggedUser, events, myEvents}) {
+  // console.log({events})
+  console.log({myEvents})
+
+  const res= events.map(each=> each.ticketId)
+  console.log(res)
+  
   return (
     <>
     <Nav loggedUser={loggedUser}/>
     <div  className={styles.container}>
         <h1 className={styles.head}>Dashboard</h1>
         <Profile loggedUser={loggedUser} />
-        <EventPorfolio/>
+        <EventPorfolio res={res} myEvents={myEvents}/>
     </div>
     </>
   )
@@ -42,12 +50,15 @@ export async function getServerSideProps({req}) {
       "Content-type": "application/json",
       "Authorization": "Bearer "+loggedUser.access_token
     }
-    // const username=loggedUser.username
-    // const usersEvent= await  GetUsersEvents({username})
-    // const events = usersEvent.events
-    // // console.log({events})
+    const username=loggedUser.username
+    const usersEvent= await  GetUsersEvents({username})
+    const events = usersEvent.tickets
+    console.log({events})
+
+    // const myEvents = await GetBoughtEvent({ username})
+    const myEvents = await GetBoughtEvent({username})
+    console.log({myEvents})
   
     // // console.log({socialLinks})
-    return { props: { loggedUser} };
-  
-  }
+    return { props: { loggedUser,  myEvents,events} };
+}

@@ -2,9 +2,11 @@ import styles from "../../styles/dashboard/EventPortfolio.module.css"
 import {useState} from "react"
 import MyTickets from "./MyTickets"
 import Created from "./Created"
-export default function EventPorfolio() {
+export default function EventPorfolio({res, myEvents}) {
   const  navs=["Created", "My Tickets", "Wishlist"]
   const [selected,setSelected]=useState(0)
+
+
   return (
     <div className={styles.eventPortfolio} >
         <div className={styles.nav}>
@@ -26,8 +28,8 @@ export default function EventPorfolio() {
         </div>
 
         <div>
-            {selected ==0 &&<Created/>}
-            {selected == 1 &&<MyTickets/>}
+            {selected ==0 &&<Created  res={res}/>}
+            {selected == 1 &&<MyTickets myEvents={myEvents}/>}
             {selected ==2 &&<Created/>}
         </div>
 

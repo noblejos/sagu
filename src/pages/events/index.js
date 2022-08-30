@@ -110,22 +110,23 @@ if (response.status == "error") {
         const response = await contract.methods.mint(_mintAmount, _tokenURI).send({ from: address, value:String(totalAmount)})
        const  txHash = response.transactionHash;
        console.log(txHash)
-      // const receipt = await web3.eth.getTransactionReceipt(txHash)
-      // const mintAmountRange = Array.from({length: _mintAmount}, (v, i) => i)
-      // const mintAmountRangeToToken = mintAmountRange.map(index => Web3.utils.hexToNumber(receipt.logs[index].topics[3]) )
-      // console.log({mintAmountRangeToToken})
-      const tokenId = response.events.Transfer.returnValues.tokenId;
+      const receipt = await web3.eth.getTransactionReceipt(txHash)
+      const mintAmountRange = Array.from({length: _mintAmount}, (v, i) => i)
+      const mintAmountRangeToToken = mintAmountRange.map(index => Web3.utils.hexToNumber(receipt.logs[index].topics[3]) )
+      console.log({mintAmountRangeToToken})
+      // const tokenId = response.events.Transfer.returnValues.tokenId;
       const formData={
-        tokenId:tokenId,
-        transactionHash:txHash,
-        creatorWallet:address,
-        ticketId:ticketId,
+        tokenId:mintAmountRange,
+        transactionHash:txHash.toString(),
+        creatorWallet:address.toString(),
+        ticketId:ticketId.toString(),
       }
       const res= await mintedTicket({headers,formData})
       if (res.status == "error") {
         // console.log("create event error");
-        alert(response.msg || "Something went wrong");
+        
         setIsPending(false);
+        return alert(response.msg || "Something went wrong");
       }
       console.log(res)
       setMintModal(false)

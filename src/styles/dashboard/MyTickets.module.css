@@ -44,3 +44,8 @@
     line-height: 27px;
     color: #5D6065;
 }
+.category{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
