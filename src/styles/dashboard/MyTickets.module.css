@@ -1,6 +1,6 @@
 .tickets{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 260px));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 320px));
     gap: 20px;
     padding: 50px 50px;
 }

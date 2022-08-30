@@ -91,7 +91,7 @@ export default function Create({create}) {
                     <input type="number" 
                     name={"transactionfee"}
                     value={transactionFee}
-                    onChange={(e)=>setFormData({...formData,transactionFee:e.target.value})}
+                    // onChange={(e)=>setFormData({...formData,transactionFee:e.target.value})}
                     />
                     {formError.transactionFee&&<div className={styles.error}>{formError.transactionFee}</div>}
                      </div>}

@@ -9,9 +9,8 @@ export default function Connect() {
         </div>
         <div>
             <h1>Connects with fans</h1>
-            <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duit. 
-                Exercitation veniam consequat sunt, Amet minim mollit non deserunt ullamco est sit aliqua
-                 dolor do amet sint. Velit officia consequat duit. Exercitation veniam consequat sunt.
+            <p>Community is all about Creating Shared Memories. Let your audience from all over the 
+              world connect with you and create these memories when you create NFTs tailored for them
             </p>
         </div>
     </div>

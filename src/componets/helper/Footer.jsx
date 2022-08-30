@@ -5,8 +5,8 @@ export default function Footer() {
     <div className={styles.container}>
         <div className={styles.main}>
             <div className={styles.first}>
-                <h1>Sagu</h1>
-                <p>Your best Nft event community.</p>
+                <h1>Connecting Creative communities via NFTs</h1>
+                <p>Sagu is an NFT platform empowering communities to create shared memories via NFTs.</p>
                 <div>
                     <img src="/image/facebook.png" />
                     <img src="/image/innsta.png" />
