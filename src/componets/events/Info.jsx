@@ -4,7 +4,7 @@ import { useState } from "react";
 import MintModal from "./MintModal";
 import Successful from "./successfulModal";
 
-export default function Info({ mintTicket, name, image }) {
+export default function Info({ mintTicket, name, image, price }) {
   //   function handleClick(e) {
   //     e.preventDefault();
   //     setMintModal(!mintModal);
@@ -23,10 +23,10 @@ export default function Info({ mintTicket, name, image }) {
           <div className={styles.main}>
             {!image ? <img src="/image/Dticket.png" /> : <img src={image} />}
             <div className={styles.details}>
-              {name ? <h3>TechUp Port Harcourt</h3> : <h3>{name}</h3>}
+              {!name ? <h3>TechUp Port Harcourt</h3> : <h3>{name}</h3>}
               <div>
                 <span>Price:</span>
-                <span>$400</span>
+              {price?  <span>{`$${price}`}</span>:<span>$24.50</span>}
               </div>
               <div>
                 <span>Gross fee:</span>
@@ -40,11 +40,11 @@ export default function Info({ mintTicket, name, image }) {
                 {!name ? <h3>TechUp Port Harcourt</h3> : <h3>{name}</h3>}
                 <div>
                   <span>Price:</span>
-                  <span>$400</span>
+                  {price?  <span>{`$${price}`}</span>:<span>$24.50</span>}
                 </div>
                 <div>
                   <span>Gross fee:</span>
-                  <span>$400</span>
+                  <span>$24.50</span>
                 </div>
               </div>
             </div>

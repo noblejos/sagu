@@ -3,9 +3,9 @@ import styles from "../../styles/dashboard/MyTickets.module.css"
 
 export default function Created({res}) {
 console.log({res})
-  if(res.lenght>1){
+  if(res.length>0){
     return (
-      <div className={styles.tickets}>
+     <div className={styles.tickets}>
           {res.map((item, index)=>(
             <Link href={`/tickets/${item.name}`} key={index}>
               <div className={styles.card}>
@@ -18,8 +18,8 @@ console.log({res})
               </Link>
           ))}
     </div>
-    )
-          }
+    )}
+         
 
   
   return (
@@ -30,5 +30,6 @@ console.log({res})
 
     </div>
   )
-  }
+  
 
+}

@@ -1,3 +1,4 @@
+import Link from "next/link"
 import styles from "../../styles/dashboard/MyTickets.module.css"
 
  const data={
@@ -9,22 +10,38 @@ import styles from "../../styles/dashboard/MyTickets.module.css"
 
 export default function MyTickets({myEvents}) {
   const res= myEvents.map(each=> each.ticket)
+  // console.log({res})
+  const real = res.splice(1)
   console.log({res})
-
+  console.log({real})
   
 
     const items=[data,data,data,data,data,data,data,data]
-
+    if(real.length>0){
   return (
     <div className={styles.tickets}>
-        {items.map((item, index)=>(
+        {real.map((item, index)=>(
+          <Link href={`/tickets/${item.name}`} key={index}>
             <div key={index} className={styles.card}>
-                <img src={item.img}/>
-                <h1>{item.title}</h1>
-                <h2>{item.venue}</h2>
-                <h3>{item.date}</h3>
+                <img src={item.coverImage}/>
+                <h1>{item.name}</h1>
+                {/* <h2>{item.venue}</h2>
+                <h3>{item.date}</h3> */}
             </div>
+            </Link>
         ))}
+        
+    </div>
+  )
+              }
+
+
+  return (
+    <div className={styles.created}>
+        <img src="/image/noitem.png" />
+        <h1>No item to display</h1>
+
+
     </div>
   )
 }

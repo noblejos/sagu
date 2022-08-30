@@ -37,6 +37,7 @@ export default function Event({loggedUser, headers}) {
   const [formErrors,setFormErrors]=useState({ticketImage:""})
   const [ticketimage, setTicketimage]=useState("")
   const [ticketname, setTicketname]=useState("")
+  const [ticketPrice, setTicketPrice]=useState("")
   
 
 
@@ -75,6 +76,7 @@ async function create(){
  console.log({formData})
  setTicketimage(formData.coverImage)
  setTicketname(formData.name)
+ setTicketPrice(formData.price)
 
 const response = await createTicket({formData, headers})
 console.log(response)
@@ -118,11 +120,12 @@ if (response.status == "error") {
       console.log({mintAmountRangeToToken})
       // const tokenId = response.events.Transfer.returnValues.tokenId;
       const formData={
-        tokenId:mintAmountRange,
+        tokenId:["1", "2"],
         transactionHash:txHash,
         creatorWallet:address,
         ticketId:ticketId,
       }
+      console.log({formData})
       const res= await mintedTicket({headers,formData})
       if (res.status == "error") {
         // console.log("create event error");
@@ -155,7 +158,7 @@ if (response.status == "error") {
           >
           <Create create={()=>create()}/>
         </form>
-        {ticketInfo?<Info mintTicket={()=>mint()} image={ticketimage} name={ticketname}/>:""}
+        {ticketInfo?<Info mintTicket={()=>mint()} image={ticketimage} name={ticketname} price={ticketPrice}/>:""}
         {mintModal&& <MintModal close={()=>setMintModal(!mintModal)}/>}
         {isPending&&<Spinner/>}
        {complete && <Successful close={()=>setComplete(!complete)}/>}

@@ -2,12 +2,13 @@
   padding: 2em 5em;
   position:fixed;
   inset: 0 0 0 0;
+  
   background-color: white;
   /* padding: ; */
 }
 .edit {
   width: 636px;
-  margin: 10px auto;
+  margin: 0px auto;
   display: flex;
   align-items: center;
   gap: 4px;
@@ -38,9 +39,9 @@
 }
 .bg {
   width: 636px;
-  /* Height:576px; */
+  Height:420px;
   margin: 10px auto;
-  margin-bottom: 90px;
+  margin-bottom: 20px;
   padding: 2rem;
   background: linear-gradient(
     265.56deg,

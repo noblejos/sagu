@@ -6,10 +6,12 @@ import styles from "../../styles/tickets/Tickets.module.css"
 import {verify} from "jsonwebtoken"
 import buyTicket from '../../services/post/buyTicket';
 import Successful from '../../componets/events/successfulModal';
+import Spinner from '../../componets/helper/spinner';
 
 
 export default function SingleEvent({ticket,loggedUser,headers}) {
   const [complete, setComplete] = useState(false)
+  const [isPending, setIsPending]=useState(false)
     console.log({ticket:ticket._id})
    let ticketId= ticket._id
 
@@ -19,7 +21,9 @@ export default function SingleEvent({ticket,loggedUser,headers}) {
     }
 
     async function confirmTicketBuy(){
+      setIsPending(true)
     const response = await buyTicket({formData, headers})
+    setIsPending(false)
     setComplete(true)
 
   }
@@ -85,6 +89,7 @@ export default function SingleEvent({ticket,loggedUser,headers}) {
         </div>
     </div>
     {complete &&<Successful close={()=> setComplete(!complete)}/>}
+    {isPending &&<Spinner/>}
     <Footer/>
     </>
   )

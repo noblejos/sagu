@@ -3,7 +3,7 @@ import {useState} from "react"
 import MyTickets from "./MyTickets"
 import Created from "./Created"
 export default function EventPorfolio({res, myEvents}) {
-  const  navs=["Created", "My Tickets", "Wishlist"]
+  const  navs=["Created", "My Tickets"]
   const [selected,setSelected]=useState(0)
 
 
@@ -30,7 +30,7 @@ export default function EventPorfolio({res, myEvents}) {
         <div>
             {selected ==0 &&<Created  res={res}/>}
             {selected == 1 &&<MyTickets myEvents={myEvents}/>}
-            {selected ==2 &&<Created/>}
+            {/* {selected ==2 &&<Created/>} */}
         </div>
 
     </div>

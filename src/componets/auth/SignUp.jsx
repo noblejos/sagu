@@ -99,7 +99,7 @@ export default function SignUp({ uploadPresets, cloudName }) {
     });
     const signature = await web3.eth.personal.sign(signinShake.signMessage, address);
     const loginResponse = await axios.post("/api/apiSigninUser", {
-      signature: signature.signature,
+      signature: signature,
       walletAddress: address,
     });
     if (loginResponse.data.status == "error") {

@@ -12,7 +12,7 @@ export default function Dashboard({loggedUser, events, myEvents}) {
   console.log({myEvents})
 
   const res= events.map(each=> each.ticketId)
-  console.log(res)
+ 
   
   return (
     <>
