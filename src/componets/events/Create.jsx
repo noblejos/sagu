@@ -4,7 +4,7 @@ import { EventContext } from "../../context/eventContext"
 import { useContext,useRef,useState, useEffect } from "react"
 
 const type=[
-    {value:"free", label:"Free"},
+    // {value:"free", label:"Free"},
     {value:"paid", label:"Paid"},
 ]
 const category = [
