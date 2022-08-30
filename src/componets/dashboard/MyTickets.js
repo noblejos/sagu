@@ -25,8 +25,8 @@ export default function MyTickets({myEvents}) {
             <div key={index} className={styles.card}>
                 <img src={item.coverImage}/>
                 <h1>{item.name}</h1>
-                {/* <h2>{item.venue}</h2>
-                <h3>{item.date}</h3> */}
+                 <h2>{item.desc}</h2>
+                <h3>{item.category}</h3> 
             </div>
             </Link>
         ))}
