@@ -17,6 +17,7 @@ import {contractABI, contractAddress} from "../../Data/data"
 import Info from "../../componets/events/Info";
 import MintModal from "../../componets/events/MintModal";
 import mintedTicket from "../../services/post/mintedTicket";
+import Successful from "../../componets/events/successfulModal";
 // import { AuthContext } from "../../context/authContext";
 
 
@@ -25,6 +26,7 @@ const web3 = new Web3(Web3.givenProvider);
 export default function Event({loggedUser, headers}) {
   // const {address} = useContext(AuthContext)
   const [isPending,setIsPending]=useState(false)
+  const [complete, setComplete] = useState(false)
   const [metaData,setMetaData] = useState("")
   const eventForm=useRef(null)
   const router= useRouter()
@@ -103,7 +105,7 @@ if (response.status == "error") {
   console.log(metaData)
       const contract = new web3.eth.Contract(contractABI, contractAddress);
       try {
-        var _mintAmount=1
+        var _mintAmount=2
         var _tokenURI=metaData
         var mintRate=Number(await contract.methods.cost().call())
         var totalAmount = mintRate * _mintAmount;
@@ -117,9 +119,9 @@ if (response.status == "error") {
       // const tokenId = response.events.Transfer.returnValues.tokenId;
       const formData={
         tokenId:mintAmountRange,
-        transactionHash:txHash.toString(),
-        creatorWallet:address.toString(),
-        ticketId:ticketId.toString(),
+        transactionHash:txHash,
+        creatorWallet:address,
+        ticketId:ticketId,
       }
       const res= await mintedTicket({headers,formData})
       if (res.status == "error") {
@@ -130,7 +132,8 @@ if (response.status == "error") {
       }
       console.log(res)
       setMintModal(false)
-      alert("sucessfull")
+      // alert("sucessfull")
+      setComplete(true)
       return router.push("/dashboard")
 
       } catch (error) {
@@ -155,6 +158,7 @@ if (response.status == "error") {
         {ticketInfo?<Info mintTicket={()=>mint()} image={ticketimage} name={ticketname}/>:""}
         {mintModal&& <MintModal close={()=>setMintModal(!mintModal)}/>}
         {isPending&&<Spinner/>}
+       {complete && <Successful close={()=>setComplete(!complete)}/>}
         </EventContextProvider>
     </div>
     </>

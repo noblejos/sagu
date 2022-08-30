@@ -9,7 +9,6 @@ export default function Successful({ close }) {
           onClick={close}
           className={styles.close}
         />
-
         <div className={styles.main}>
           <div>
             <img src="/image/clarity_success-standard-line bbbb.png" />

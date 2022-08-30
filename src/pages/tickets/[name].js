@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import GetEvent from '../../services/get/getEvent';
 import Footer from "../../componets/helper/Footer"
 import Nav from "../../componets/helper/Nav"
 import styles from "../../styles/tickets/Tickets.module.css"
 import {verify} from "jsonwebtoken"
 import buyTicket from '../../services/post/buyTicket';
+import Successful from '../../componets/events/successfulModal';
+
 
 export default function SingleEvent({ticket,loggedUser,headers}) {
+  const [complete, setComplete] = useState(false)
     console.log({ticket:ticket._id})
    let ticketId= ticket._id
 
@@ -17,7 +20,7 @@ export default function SingleEvent({ticket,loggedUser,headers}) {
 
     async function confirmTicketBuy(){
     const response = await buyTicket({formData, headers})
-    alert("sucessfull")
+    setComplete(true)
 
   }
 
@@ -81,6 +84,7 @@ export default function SingleEvent({ticket,loggedUser,headers}) {
             </div>
         </div>
     </div>
+    {complete &&<Successful close={()=> setComplete(!complete)}/>}
     <Footer/>
     </>
   )
