@@ -1,17 +1,18 @@
 # Sagu
 
-Connecting Creative communities via NFTs.
+_Hackathon: LUKSO Build UP! #1: Fashion, Art, Music, Entertainment - Open Category_
+
+[Sagu](https://sagu.vercel.app/) is an NFT platform empowering communities to create shared memories via NFTs.
 
 - **Website:** [https://sagu.vercel.app/](https://sagu.vercel.app/)
 - **Backend base url:** [nftickets-v1.herokuapp.com](nftickets-v1.herokuapp.com)
-
-Video Link: 
+- **Sagu Explainer video:** [https://www.loom.com/share/e39b83411c7c42fb9f74d624c005277b](https://www.loom.com/share/e39b83411c7c42fb9f74d624c005277b)
 
 ## Name and Email of Team Members
 
-- Godwin Jimmy - jimmygodwin371@gmail.com
-- Reuben Odunze - royalrubee@gmail.com
-- Owanate Amachree - amachreeowanate@gmail.com
+- Godwin Jimmy (Team Lead) - jimmygodwin371@gmail.com
+- Reuben Odunze (Blockchain Developer) - royalrubee@gmail.com
+- Owanate Amachree (Technical writer) - amachreeowanate@gmail.com
 
 ## Description
 
@@ -22,17 +23,15 @@ Community is all about Creating Shared Memories. Let your audience from all over
 With Sagu;
 - Creatives can mint an NFT for their fans
 - Sell tickets in form of NFTs
+- Shareable nft link
 
 ## Getting Started
-
 ### Prerequisite
-
-TODO
-
-### Initialize the project
-TODO
-
+- Lukso Testnet
+- Metamask
 ### Execute the smart contract
+
+- Sagu Contract Address: `0xB79F66d3AFe2cFAF6B4E104939475859ce447c0e`
 
 - [Contract Call Execution](https://explorer.execution.l16.lukso.network/address/0xB79F66d3AFe2cFAF6B4E104939475859ce447c0e/transactions#address-tabs)
 
