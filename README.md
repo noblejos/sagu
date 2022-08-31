@@ -2,8 +2,8 @@
 
 Connecting Creative communities via NFTs.
 
-**Website:** [https://sagu.vercel.app/](https://sagu.vercel.app/)
-**Backend base url:** [nftickets-v1.herokuapp.com](nftickets-v1.herokuapp.com)
+- **Website:** [https://sagu.vercel.app/](https://sagu.vercel.app/)
+- **Backend base url:** [nftickets-v1.herokuapp.com](nftickets-v1.herokuapp.com)
 
 Video Link: 
 
