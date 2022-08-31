@@ -21,8 +21,10 @@ _Hackathon: LUKSO Build UP! #1: Fashion, Art, Music, Entertainment - Open Catego
 
 Community is all about Creating Shared Memories. Let your audience from all over the world connect with you and create these memories when you create NFTs tailored for them.
 
+The DApp that allows creatives to mint Tickets(Single, membership, donation, and fundraisers) that can be shared directly with their communities.
+
 With Sagu;
-- Creatives can mint an NFT for their fans
+- Creatives can mint an NFT Single, membership, donation, and fundraisers) for their fans or communities
 - Sell tickets in form of NFTs
 - Shareable nft link
 
