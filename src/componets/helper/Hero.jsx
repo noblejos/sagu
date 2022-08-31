@@ -11,8 +11,7 @@ export default function Hero() {
     <div className={styles.container}>
         <div className={styles.text}>
             <h1>Connecting Creative communities via NFTs</h1>
-            <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. 
-                Velit officia consequat duit. Exercitation veniam consequat sunt</p>
+            <p>Sagu is an NFT platform empowering communities to create shared memories via NFTs.</p>
                 <Link href="/auth/connect"><button>Get Started</button></Link>
         </div>
         <div className={styles.cards}>
