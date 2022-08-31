@@ -7,6 +7,7 @@ _Hackathon: LUKSO Build UP! #1: Fashion, Art, Music, Entertainment - Open Catego
 - **Website:** [https://sagu.vercel.app/](https://sagu.vercel.app/)
 - **Backend base url:** [nftickets-v1.herokuapp.com](nftickets-v1.herokuapp.com)
 - **Sagu Explainer video:** [https://www.loom.com/share/e39b83411c7c42fb9f74d624c005277b](https://www.loom.com/share/e39b83411c7c42fb9f74d624c005277b)
+- Sagu Contract Address: `0xB79F66d3AFe2cFAF6B4E104939475859ce447c0e`
 
 ## Name and Email of Team Members
 
@@ -31,12 +32,9 @@ With Sagu;
 - Metamask
 ### Execute the smart contract
 
-- Sagu Contract Address: `0xB79F66d3AFe2cFAF6B4E104939475859ce447c0e`
-
 - [Contract Call Execution](https://explorer.execution.l16.lukso.network/address/0xB79F66d3AFe2cFAF6B4E104939475859ce447c0e/transactions#address-tabs)
 
 ### Connect to the frontend
-
 - Clone the [Sagu repo](https://github.com/noblejos/sagu)
 
 Run the development server:
