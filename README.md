@@ -1,3 +1,5 @@
+This is a Next.js project initiated with create-next-app.
+
 # Sagu
 
 _Hackathon: LUKSO Build UP! #1: Fashion, Art, Music, Entertainment - Open Category_
